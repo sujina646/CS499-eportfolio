@@ -18,7 +18,7 @@ A 3D kitchen scene application with enhanced features including:
 - Database integration
 - Performance optimization
 
-**Original Code:** [SceneManager.cpp](artifacts/3d-kitchen-scene/original/SceneManager.cpp)
+**Original Code:** [SceneManager.cpp](/SceneManager.cpp)
 **Enhanced Code:** [Enhanced Implementation](artifacts/3d-kitchen-scene/enhanced/)
 
 ### 2. Mobile Trip Planner
