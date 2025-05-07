@@ -18,7 +18,7 @@ A 3D kitchen scene application with enhanced features including:
 - Performance optimization
 
 **Original Code:** [SceneManager.cpp](/SceneManager.cpp)
-**Enhanced Code:** [Enhanced Implementation](/SceneManager.h)
+**Enhanced Code:** [Enhanced Implementation](/SceneManager.h)(/SceneObject.h)
 
 ### 2. Mobile Trip Planner
 A mobile trip planning application with enhanced features including:
@@ -28,11 +28,11 @@ A mobile trip planning application with enhanced features including:
 - MVC architecture
 
 **Original Code:** [main.py](/main.py)
-**Enhanced Code:** [Enhanced Implementation](/enhanced/)
+**Enhanced Code:** [Enhanced Implementation](/view.py)
 
 ## Documentation
 - [Professional Self-Assessment](/professional-self-assessment.md)
-- [Technical Documentation](documentation/)
+  
 
 ## Contact
 Email: sujina.chand@snhu.edu
