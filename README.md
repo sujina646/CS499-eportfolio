@@ -19,7 +19,7 @@ A 3D kitchen scene application with enhanced features including:
 - Performance optimization
 
 **Original Code:** [SceneManager.cpp](/SceneManager.cpp)
-**Enhanced Code:** [Enhanced Implementation](artifacts/3d-kitchen-scene/enhanced/)
+**Enhanced Code:** [Enhanced Implementation](/SceneManager.h)
 
 ### 2. Mobile Trip Planner
 A mobile trip planning application with enhanced features including:
@@ -28,7 +28,7 @@ A mobile trip planning application with enhanced features including:
 - Improved user experience
 - MVC architecture
 
-**Original Code:** [main.py](artifacts/mobile-trip-planner/original/main.py)
+**Original Code:** [main.py](/main.py)
 **Enhanced Code:** [Enhanced Implementation](artifacts/mobile-trip-planner/enhanced/)
 
 ## Documentation
