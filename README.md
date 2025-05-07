@@ -1,4 +1,3 @@
-# CS499-eportfolio
 
 # CS499 ePortfolio - Sujina Chand
 
@@ -29,10 +28,10 @@ A mobile trip planning application with enhanced features including:
 - MVC architecture
 
 **Original Code:** [main.py](/main.py)
-**Enhanced Code:** [Enhanced Implementation](artifacts/mobile-trip-planner/enhanced/)
+**Enhanced Code:** [Enhanced Implementation](/enhanced/)
 
 ## Documentation
-- [Professional Self-Assessment](artifacts/Professional_Self_Assessment.md)
+- [Professional Self-Assessment](/Professional_Self_Assessment.md)
 - [Technical Documentation](documentation/)
 
 ## Contact
