@@ -31,7 +31,7 @@ A mobile trip planning application with enhanced features including:
 **Enhanced Code:** [Enhanced Implementation](/enhanced/)
 
 ## Documentation
-- [Professional Self-Assessment](/professional-self-Assessment.md)
+- [Professional Self-Assessment](/professional-self-assessment.md)
 - [Technical Documentation](documentation/)
 
 ## Contact
