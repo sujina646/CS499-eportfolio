@@ -1,38 +1,41 @@
-
 # CS499 ePortfolio - Sujina Chand
 
-This repository contains my CS499 Capstone ePortfolio showcasing two enhanced projects:
-1. 3D Kitchen Scene
-2. Mobile Trip Planner
+This repository contains my CS499 Capstone ePortfolio showcasing my enhanced 3D Kitchen Scene project with improvements in software design, algorithms and data structures, and database integration.
 
 ## Portfolio Website
 Visit my portfolio website: [https://sujina646.github.io/CS499-eportfolio/](https://sujina646.github.io/CS499-eportfolio/)
 
-## Projects
+## 3D Kitchen Scene Project Enhancements
 
-### 1. 3D Kitchen Scene
-A 3D kitchen scene application with enhanced features including:
-- Scene graph management
-- Frustum culling
-- Database integration
-- Performance optimization
+### 1. Software Design & Engineering
+Enhanced the software architecture using:
+- Scene graph implementation for better object organization
+- Component-based system for flexible object management
+- Resource management system to optimize memory usage
 
-**Original Code:** [SceneManager.cpp](/SceneManager.cpp)
-**Enhanced Code:** [Enhanced Implementation](/SceneManager.h)(/SceneObject.h)
+**Code:** [software-design/](/software-design/)
 
-### 2. Mobile Trip Planner
-A mobile trip planning application with enhanced features including:
-- Offline support
-- API synchronization
-- Improved user experience
-- MVC architecture
+### 2. Algorithms & Data Structures
+Improved performance through:
+- Tree data structure implementation
+- Spatial partitioning with Octree for efficient rendering
+- Resource caching system using hash maps
 
-**Original Code:** [main.py](/main.py)
-**Enhanced Code:** [Enhanced Implementation](/view.py)
+**Code:** [algorithms/](/algorithms/)
+
+### 3. Databases
+Added persistence to the application with:
+- SQLite database integration
+- Normalized database schema design
+- Transaction management for data integrity
+
+**Code:** [databases/](/databases/)
 
 ## Documentation
-- [Professional Self-Assessment](/professional-self-assessment.md)
-  
+- [Professional Self-Assessment](professional-assessment.html)
+- [Software Design Narrative](software-narrative.html)
+- [Algorithms Narrative](algorithms-narrative.html)
+- [Databases Narrative](databases-narrative.html)
 
 ## Contact
 Email: sujina.chand@snhu.edu
