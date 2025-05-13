@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Databases - CS 499 ePortfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Databases</h1>
+            <p>3D Kitchen Scene Enhancement</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="software-narrative.html">Software Design</a></li>
+                <li><a href="algorithms-narrative.html">Algorithms</a></li>
+                <li><a href="databases-narrative.html" class="active">Databases</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="section">
+            <h2>Databases Enhancement</h2>
+            
+            <div class="enhancement">
+                <h3>Project Background</h3>
+                <p>My 3D Kitchen Scene project from CS 330 was originally designed as a standalone application with no persistence. This meant that any kitchen layouts created would be lost when the application was closed. My database enhancement adds persistence to the application, allowing users to save and load their kitchen designs.</p>
+                
+                <h3>Original Implementation</h3>
+                <p>The original implementation had no data persistence capabilities. All scene data was stored in memory and lost when the application closed:</p>
+                
+                <div class="code-sample">
+                    <h4>Original Scene Loading:</h4>
+                    <pre><code class="language-cpp">
+// Hard-coded scene setup with no persistence
+void setupScene() {
+    // Create kitchen table
+    auto table = std::make_unique<Object3D>();
+    table->loadModel("models/table.obj");
+    table->setPosition(glm::vec3(0.0f, 0.0f, 0.0f));
+    scene.addObject(std::move(table));
+    
+    // Create kitchen cabinet
+    auto cabinet = std::make_unique<Object3D>();
+    cabinet->loadModel("models/cabinet.obj");
+    cabinet->setPosition(glm::vec3(2.0f, 0.0f, 0.0f));
+    scene.addObject(std::move(cabinet));
+    
+    // No way to save this configuration
+}
+                    </code></pre>
+                </div>
+
+                <h3>Enhancement Plan</h3>
+                <p>My database enhancement focuses on three key areas:</p>
+                
+                <h4>1. Database Schema Design</h4>
+                <p>I've designed a normalized database schema to efficiently store scene data, object properties, and user preferences.</p>
+                
+                <div class="code-sample">
+                    <pre><code class="language-sql">
+-- Scene table to store kitchen layouts
+CREATE TABLE scenes (
+    scene_id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    created_date DATETIME,
+    last_modified DATETIME,
+    user_id INTEGER,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+-- Objects table to store kitchen items
+CREATE TABLE objects (
+    object_id INTEGER PRIMARY KEY,
+    scene_id INTEGER,
+    model_id INTEGER,
+    position_x REAL,
+    position_y REAL,
+    position_z REAL,
+    rotation_x REAL,
+    rotation_y REAL,
+    rotation_z REAL,
+    scale_x REAL,
+    scale_y REAL,
+    scale_z REAL,
+    FOREIGN KEY (scene_id) REFERENCES scenes(scene_id),
+    FOREIGN KEY (model_id) REFERENCES models(model_id)
+);
+
+-- Models table for 3D assets
+CREATE TABLE models (
+    model_id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    file_path TEXT NOT NULL,
+    category TEXT,
+    tags TEXT
+);
+
+-- User preferences
+CREATE TABLE user_preferences (
+    user_id INTEGER PRIMARY KEY,
+    theme TEXT,
+    default_view TEXT,
+    quality_settings TEXT
+);
+                    </code></pre>
+                </div>
+
+                <h4>2. Database Integration with C++</h4>
+                <p>I'm implementing a database manager class to handle database operations and provide a clean API for the rest of the application.</p>
+                
+                <div class="code-sample">
+                    <pre><code class="language-cpp">
+class DatabaseManager {
+private:
+    sqlite3* db;
+    std::string dbPath;
+
+public:
+    DatabaseManager(const std::string& path) : dbPath(path) {
+        int rc = sqlite3_open(dbPath.c_str(), &db);
+        if (rc != SQLITE_OK) {
+            throw std::runtime_error("Cannot open database: " + 
+                std::string(sqlite3_errmsg(db)));
+        }
+        initializeTables();
+    }
+
+    ~DatabaseManager() {
+        sqlite3_close(db);
+    }
+
+    // Initialize database tables if they don't exist
+    void initializeTables() {
+        const char* createScenesSql = 
+            "CREATE TABLE IF NOT EXISTS scenes ("
+            "scene_id INTEGER PRIMARY KEY,"
+            "name TEXT NOT NULL,"
+            "created_date DATETIME,"
+            "last_modified DATETIME,"
+            "user_id INTEGER);";
+        
+        executeQuery(createScenesSql);
+        
+        // Create other tables...
+    }
+
+    // Execute a SQL query
+    void executeQuery(const std::string& sql) {
+        char* errMsg = nullptr;
+        int rc = sqlite3_exec(db, sql.c_str(), nullptr, nullptr, &errMsg);
+        
+        if (rc != SQLITE_OK) {
+            std::string error = errMsg ? errMsg : "Unknown error";
+            sqlite3_free(errMsg);
+            throw std::runtime_error("SQL error: " + error);
+        }
+    }
+
+    // Save a scene to the database
+    int saveScene(const Scene& scene, const std::string& name, int userId) {
+        // Begin transaction for better performance and atomicity
+        beginTransaction();
+        
+        try {
+            // Insert scene record
+            std::string sql = "INSERT INTO scenes (name, created_date, last_modified, user_id) "
+                             "VALUES (?, datetime('now'), datetime('now'), ?);";
+            
+            sqlite3_stmt* stmt;
+            sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, nullptr);
+            sqlite3_bind_text(stmt, 1, name.c_str(), -1, SQLITE_STATIC);
+            sqlite3_bind_int(stmt, 2, userId);
+            
+            if (sqlite3_step(stmt) != SQLITE_DONE) {
+                throw std::runtime_error("Failed to save scene");
+            }
+            
+            int sceneId = sqlite3_last_insert_rowid(db);
+            sqlite3_finalize(stmt);
+            
+            // Save each object in the scene
+            for (const auto& obj : scene.getObjects()) {
+                saveObject(obj, sceneId);
+            }
+            
+            commitTransaction();
+            return sceneId;
+        }
+        catch (const std::exception& e) {
+            rollbackTransaction();
+            throw;
+        }
+    }
+
+    // Load a scene from the database
+    Scene loadScene(int sceneId) {
+        Scene scene;
+        
+        // Load scene objects
+        std::string sql = "SELECT o.object_id, o.model_id, m.file_path, "
+                         "o.position_x, o.position_y, o.position_z, "
+                         "o.rotation_x, o.rotation_y, o.rotation_z, "
+                         "o.scale_x, o.scale_y, o.scale_z "
+                         "FROM objects o "
+                         "JOIN models m ON o.model_id = m.model_id "
+                         "WHERE o.scene_id = ?;";
+        
+        sqlite3_stmt* stmt;
+        sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, nullptr);
+        sqlite3_bind_int(stmt, 1, sceneId);
+        
+        while (sqlite3_step(stmt) == SQLITE_ROW) {
+            int modelId = sqlite3_column_int(stmt, 1);
+            const char* filePath = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 2));
+            
+            glm::vec3 position(
+                sqlite3_column_double(stmt, 3),
+                sqlite3_column_double(stmt, 4),
+                sqlite3_column_double(stmt, 5)
+            );
+            
+            glm::vec3 rotation(
+                sqlite3_column_double(stmt, 6),
+                sqlite3_column_double(stmt, 7),
+                sqlite3_column_double(stmt, 8)
+            );
+            
+            glm::vec3 scale(
+                sqlite3_column_double(stmt, 9),
+                sqlite3_column_double(stmt, 10),
+                sqlite3_column_double(stmt, 11)
+            );
+            
+            auto obj = std::make_unique<Object3D>();
+            obj->loadModel(filePath);
+            obj->setPosition(position);
+            obj->setRotation(rotation);
+            obj->setScale(scale);
+            
+            scene.addObject(std::move(obj));
+        }
+        
+        sqlite3_finalize(stmt);
+        return scene;
+    }
+
+private:
+    // Transaction management
+    void beginTransaction() {
+        executeQuery("BEGIN TRANSACTION;");
+    }
+    
+    void commitTransaction() {
+        executeQuery("COMMIT;");
+    }
+    
+    void rollbackTransaction() {
+        executeQuery("ROLLBACK;");
+    }
+    
+    // Save a single object
+    void saveObject(const Object3D& obj, int sceneId) {
+        std::string sql = "INSERT INTO objects "
+                         "(scene_id, model_id, position_x, position_y, position_z, "
+                         "rotation_x, rotation_y, rotation_z, "
+                         "scale_x, scale_y, scale_z) "
+                         "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        
+        sqlite3_stmt* stmt;
+        sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, nullptr);
+        
+        // Bind parameters
+        int modelId = getModelId(obj.getModelPath());
+        
+        sqlite3_bind_int(stmt, 1, sceneId);
+        sqlite3_bind_int(stmt, 2, modelId);
+        
+        const auto& position = obj.getPosition();
+        sqlite3_bind_double(stmt, 3, position.x);
+        sqlite3_bind_double(stmt, 4, position.y);
+        sqlite3_bind_double(stmt, 5, position.z);
+        
+        const auto& rotation = obj.getRotation();
+        sqlite3_bind_double(stmt, 6, rotation.x);
+        sqlite3_bind_double(stmt, 7, rotation.y);
+        sqlite3_bind_double(stmt, 8, rotation.z);
+        
+        const auto& scale = obj.getScale();
+        sqlite3_bind_double(stmt, 9, scale.x);
+        sqlite3_bind_double(stmt, 10, scale.y);
+        sqlite3_bind_double(stmt, 11, scale.z);
+        
+        if (sqlite3_step(stmt) != SQLITE_DONE) {
+            throw std::runtime_error("Failed to save object");
+        }
+        
+        sqlite3_finalize(stmt);
+    }
+    
+    // Get or create a model ID for a model path
+    int getModelId(const std::string& modelPath) {
+        // Check if model exists
+        std::string sql = "SELECT model_id FROM models WHERE file_path = ?;";
+        sqlite3_stmt* stmt;
+        sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, nullptr);
+        sqlite3_bind_text(stmt, 1, modelPath.c_str(), -1, SQLITE_STATIC);
+        
+        if (sqlite3_step(stmt) == SQLITE_ROW) {
+            int modelId = sqlite3_column_int(stmt, 0);
+            sqlite3_finalize(stmt);
+            return modelId;
+        }
+        
+        sqlite3_finalize(stmt);
+        
+        // Create new model entry
+        sql = "INSERT INTO models (name, file_path) VALUES (?, ?);";
+        sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, nullptr);
+        
+        // Extract filename from path
+        std::string filename = modelPath.substr(modelPath.find_last_of("/\\") + 1);
+        
+        sqlite3_bind_text(stmt, 1, filename.c_str(), -1, SQLITE_STATIC);
+        sqlite3_bind_text(stmt, 2, modelPath.c_str(), -1, SQLITE_STATIC);
+        
+        if (sqlite3_step(stmt) != SQLITE_DONE) {
+            throw std::runtime_error("Failed to create model entry");
+        }
+        
+        int modelId = sqlite3_last_insert_rowid(db);
+        sqlite3_finalize(stmt);
+        
+        return modelId;
+    }
+};
+                    </code></pre>
+                </div>
+
+                <h4>3. User Interface for Scene Management</h4>
+                <p>I'm adding a user interface to allow users to save, load, and manage their kitchen designs.</p>
+                
+                <div class="code-sample">
+                    <pre><code class="language-cpp">
+class SceneManager {
+private:
+    DatabaseManager dbManager;
+    Scene currentScene;
+    std::string currentSceneName;
+    int currentUserId;
+
+public:
+    SceneManager() : dbManager("kitchen_scene.db"), currentUserId(1) {}
+
+    // Save current scene
+    void saveCurrentScene(const std::string& name) {
+        try {
+            int sceneId = dbManager.saveScene(currentScene, name, currentUserId);
+            currentSceneName = name;
+            std::cout << "Scene saved successfully with ID: " << sceneId << std::endl;
+        }
+        catch (const std::exception& e) {
+            std::cerr << "Error saving scene: " << e.what() << std::endl;
+        }
+    }
+
+    // Load scene by ID
+    void loadScene(int sceneId) {
+        try {
+            currentScene = dbManager.loadScene(sceneId);
+            std::string name = dbManager.getSceneName(sceneId);
+            currentSceneName = name;
+            std::cout << "Scene '" << name << "' loaded successfully" << std::endl;
+        }
+        catch (const std::exception& e) {
+            std::cerr << "Error loading scene: " << e.what() << std::endl;
+        }
+    }
+
+    // Get list of available scenes
+    std::vector<SceneInfo> getAvailableScenes() {
+        return dbManager.getSceneList(currentUserId);
+    }
+
+    // Add object to scene
+    void addObject(std::unique_ptr<Object3D> object) {
+        currentScene.addObject(std::move(object));
+    }
+
+    // Remove object from scene
+    void removeObject(int index) {
+        currentScene.removeObject(index);
+    }
+
+    // Render the current scene
+    void renderScene() {
+        currentScene.render();
+    }
+};
+                    </code></pre>
+                </div>
+
+                <h3>Implementation Process</h3>
+                <p>I'm following a structured approach to implement these database enhancements:</p>
+                <ol>
+                    <li><strong>Week 1:</strong> Design and implement the database schema</li>
+                    <li><strong>Week 2:</strong> Create the database manager class and implement basic CRUD operations</li>
+                    <li><strong>Week 3:</strong> Integrate the database with the scene management system</li>
+                    <li><strong>Week 4:</strong> Add user interface elements for scene management and test the implementation</li>
+                </ol>
+
+                <h3>Skills Demonstrated</h3>
+                <p>This enhancement demonstrates several key database skills:</p>
+                <ul>
+                    <li><strong>Database Schema Design:</strong> Creating a normalized, efficient database structure</li>
+                    <li><strong>SQL Query Development:</strong> Writing complex queries for data retrieval and manipulation</li>
+                    <li><strong>Transaction Management:</strong> Ensuring data integrity through proper transaction handling</li>
+                    <li><strong>ORM Implementation:</strong> Creating a mapping between object-oriented code and relational data</li>
+                    <li><strong>Database Connection Management:</strong> Properly handling database connections in C++</li>
+                </ul>
+
+                <h3>Alignment with Course Outcomes</h3>
+                <p>This enhancement aligns with the course outcome "Design and evaluate computing solutions that solve a given problem using algorithmic principles and computer science practices and standards appropriate to its solution while managing the trade-offs involved in design choices." I'm demonstrating this by:</p>
+                <ul>
+                    <li>Designing an efficient database schema that balances normalization and performance</li>
+                    <li>Implementing proper error handling and transaction management for data integrity</li>
+                    <li>Creating a clean API that abstracts database operations from the rest of the application</li>
+                    <li>Making informed decisions about data storage and retrieval strategies</li>
+                </ul>
+
+                <h3>Conclusion</h3>
+                <p>The database enhancement to my 3D Kitchen Scene project demonstrates my understanding of database design and integration. By adding persistence to the application, I've significantly improved its functionality and user experience while showcasing my ability to work with databases in a C++ environment. This enhancement transforms a simple visualization tool into a practical application for designing and saving kitchen layouts.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CS 499 ePortfolio. Created for Southern New Hampshire University.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 
