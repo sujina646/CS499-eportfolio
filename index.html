@@ -3,117 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sujina Chand - Software Development Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <title>CS 499 ePortfolio - 3D Kitchen Scene Enhancement</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <header>
         <div class="container">
-            <a class="navbar-brand" href="#">Sujina Chand - Software Development Portfolio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projects">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#documentation">Documentation</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#code-review">Code Review</a>
-                    </li>
-                </ul>
-            </div>
+            <h1>CS 499 ePortfolio</h1>
+            <p>Showcasing my growth in Computer Science through the 3D Kitchen Scene Project</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#code-review">Code Review</a></li>
+                <li><a href="#software-design">Software Design</a></li>
+                <li><a href="#algorithms">Algorithms</a></li>
+                <li><a href="#databases">Databases</a></li>
+                <li><a href="#professional">Professional Assessment</a></li>
+            </ul>
         </div>
     </nav>
 
-    <div class="container mt-5">
-        <section id="projects" class="mb-5">
-            <h2>Projects</h2>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title">3D Kitchen Scene</h3>
-                            <p class="card-text">A 3D kitchen scene application with enhanced features including scene graph management, frustum culling, and database integration.</p>
-                            <div class="d-flex gap-2">
-                                <a href="https://github.com/sujina646/CS499-eportfolio/blob/main/SceneManager.cpp" class="btn btn-primary">Original Code</a>
-                                <a href="/SceneManager.h" class="btn btn-success">Enhanced Code</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title">Mobile Trip Planner</h3>
-                            <p class="card-text">A mobile trip planning application with enhanced features including offline support, API synchronization, and improved user experience.</p>
-                            <div class="d-flex gap-2">
-                                <a href="/main.py" class="btn btn-primary">Original Code</a>
-                                <a href="/model.py" class="btn btn-success">Enhanced Code</a>
-                            </div>
-                        </div>
-                    </div>
+    <main class="container">
+        <section id="about" class="section">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I've been in the Computer Science program for 2 years now, and it's been an incredible journey of growth and discovery. When I first started, I was nervous about the technical challenges ahead, but through dedication and hands-on experience, I've built a solid foundation in both theory and practical applications.</p>
+                    
+                    <h3>Key Skills Developed:</h3>
+                    <ul>
+                        <li><strong>Advanced 3D Graphics Programming:</strong> My 3D Kitchen Scene project was a game-changer. I remember the first time I got a 3D object to render properly - it was like magic! Through trial and error, I mastered OpenGL, learned about scene graphs, and discovered how to optimize performance.</li>
+                        <li><strong>Mobile Application Development:</strong> The Mobile Trip Planner project was born from my love of travel and desire to solve a real problem. I learned that creating a great mobile app isn't just about coding - it's about understanding user needs and creating intuitive interfaces.</li>
+                        <li><strong>Software Architecture and Design:</strong> This was a tough lesson learned through experience. My early projects were messy and hard to maintain. But through the program, I've learned to think about software design holistically, considering maintainability, scalability, and clean code principles.</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <section id="documentation" class="mb-5">
-            <h2>Documentation</h2>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title">Professional Self-Assessment</h3>
-                            <p class="card-text">A comprehensive assessment of the development process and improvements made to both projects.</p>
-                            <a href="/professional-self-assessment.md" class="btn btn-primary">View Assessment</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title">Technical Documentation</h3>
-                            <p class="card-text">Detailed technical documentation for both projects, including architecture, algorithms, and database design.</p>
-                            <a href="documentation/" class="btn btn-primary">View Documentation</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="code-review" class="mb-5">
+        <section id="code-review" class="section">
             <h2>Code Review</h2>
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Video Code Review</h3>
-                    <p class="card-text">A detailed code review of both projects, discussing the improvements and enhancements made.</p>
-                    <div class="ratio ratio-16x9">
-                        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Code Review" allowfullscreen></iframe>
-                    </div>
+            <p>My code review video provides an overview of the 3D Kitchen Scene project and identifies areas for enhancement across software design, algorithms and data structures, and databases.</p>
+            <div class="video-container">
+                <p>Video will be embedded here once created</p>
+                <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Code Review" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+            </div>
+        </section>
+
+        <section id="software-design" class="section">
+            <h2>Software Design & Engineering</h2>
+            <div class="enhancement">
+                <h3>Enhancement Overview</h3>
+                <p>My 3D Kitchen Scene project from CS 330 was my first dive into 3D graphics programming. While functional, it had several limitations in its software design that I'm enhancing:</p>
+                
+                <h4>Key Enhancements:</h4>
+                <ul>
+                    <li>Implementing a proper scene graph architecture for better object organization</li>
+                    <li>Creating a component-based system for more flexible object management</li>
+                    <li>Adding a resource management system to optimize memory usage</li>
+                </ul>
+
+                <div class="code-sample">
+                    <h4>Before Enhancement:</h4>
+                    <pre><code class="language-cpp">
+class SceneManager {
+private:
+    std::vector<Object3D> objects;
+    Camera camera;
+    Light light;
+
+public:
+    void addObject(const Object3D& obj) {
+        objects.push_back(obj);
+    }
+
+    void render() {
+        for (const auto& obj : objects) {
+            obj.draw();
+        }
+    }
+
+    void updateCamera(const glm::vec3& position) {
+        camera.setPosition(position);
+    }
+};
+                    </code></pre>
+
+                    <h4>After Enhancement:</h4>
+                    <pre><code class="language-cpp">
+class SceneNode {
+private:
+    std::vector<std::unique_ptr<SceneNode>> children;
+    Transform localTransform;
+    Transform worldTransform;
+    SceneNode* parent;
+
+public:
+    void addChild(std::unique_ptr<SceneNode> child) {
+        child->parent = this;
+        children.push_back(std::move(child));
+    }
+
+    void updateWorldTransform() {
+        if (parent) {
+            worldTransform = parent->worldTransform * localTransform;
+        } else {
+            worldTransform = localTransform;
+        }
+        
+        for (auto& child : children) {
+            child->updateWorldTransform();
+        }
+    }
+};
+                    </code></pre>
+                </div>
+
+                <h4>Skills Demonstrated:</h4>
+                <ul>
+                    <li>Design pattern implementation (Composite pattern for scene graph)</li>
+                    <li>Modern C++ programming techniques (smart pointers, move semantics)</li>
+                    <li>Software architecture skills</li>
+                    <li>Performance optimization strategies</li>
+                </ul>
+
+                <div class="narrative">
+                    <a href="software-narrative.html" class="btn">Read Full Narrative</a>
                 </div>
             </div>
         </section>
-    </div>
 
-    <footer class="bg-dark text-light py-4 mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>Contact</h5>
-                    <p>Email: sujina.chand@snhu.edu</p>
+        <section id="algorithms" class="section">
+            <h2>Algorithms & Data Structures</h2>
+            <div class="enhancement">
+                <h3>Enhancement Overview</h3>
+                <p>For my algorithms enhancement, I'm focusing on improving the performance and organization of my 3D Kitchen Scene through better data structures:</p>
+                
+                <h4>Key Enhancements:</h4>
+                <ul>
+                    <li>Implementing a tree data structure (scene graph) for organizing objects</li>
+                    <li>Adding spatial partitioning with an Octree for efficient rendering</li>
+                    <li>Creating a resource caching system using hash maps</li>
+                </ul>
+
+                <div class="code-sample">
+                    <h4>Octree Implementation:</h4>
+                    <pre><code class="language-cpp">
+class Octree {
+private:
+    BoundingBox bounds;
+    std::vector<SceneNode*> objects;
+    std::array<std::unique_ptr<Octree>, 8> children;
+    int maxObjects;
+    int maxDepth;
+
+public:
+    void insert(SceneNode* object) {
+        if (objects.size() < maxObjects || maxDepth == 0) {
+            objects.push_back(object);
+            return;
+        }
+
+        if (children[0] == nullptr) {
+            split();
+        }
+
+        // Insert into appropriate child
+        for (int i = 0; i < 8; i++) {
+            if (children[i]->bounds.contains(object->getBoundingBox())) {
+                children[i]->insert(object);
+                break;
+            }
+        }
+    }
+
+    void query(const BoundingBox& range, std::vector<SceneNode*>& result) {
+        if (!bounds.intersects(range)) {
+            return;
+        }
+
+        for (auto* obj : objects) {
+            if (obj->getBoundingBox().intersects(range)) {
+                result.push_back(obj);
+            }
+        }
+
+        if (children[0] != nullptr) {
+            for (int i = 0; i < 8; i++) {
+                children[i]->query(range, result);
+            }
+        }
+    }
+};
+                    </code></pre>
                 </div>
-                <div class="col-md-6 text-md-end">
-                    <h5>Repository</h5>
-                    <a href="https://github.com/sujina646/CS499-eportfolio.git" class="text-light">GitHub Repository</a>
+
+                <h4>Performance Improvements:</h4>
+                <ul>
+                    <li>Original: O(n) for updates and rendering</li>
+                    <li>Enhanced: O(log n) for spatial queries</li>
+                    <li>Original: O(n) for loading resources</li>
+                    <li>Enhanced: O(1) for accessing cached resources</li>
+                </ul>
+
+                <h4>Skills Demonstrated:</h4>
+                <ul>
+                    <li>Tree data structure implementation</li>
+                    <li>Spatial partitioning algorithms</li>
+                    <li>Time complexity analysis and optimization</li>
+                    <li>Resource caching and memory management</li>
+                </ul>
+
+                <div class="narrative">
+                    <a href="algorithms-narrative.html" class="btn">Read Full Narrative</a>
                 </div>
             </div>
+        </section>
+
+        <section id="databases" class="section">
+            <h2>Databases</h2>
+            <div class="enhancement">
+                <h3>Enhancement Overview</h3>
+                <p>My database enhancement adds persistence to the 3D Kitchen Scene, allowing users to save and load their designs:</p>
+                
+                <h4>Key Enhancements:</h4>
+                <ul>
+                    <li>Implementing SQLite database integration for scene persistence</li>
+                    <li>Creating a normalized database schema for efficient data storage</li>
+                    <li>Developing a scene management system for saving and loading designs</li>
+                </ul>
+
+                <div class="code-sample">
+                    <h4>Database Schema:</h4>
+                    <pre><code class="language-sql">
+-- Scene table to store kitchen layouts
+CREATE TABLE scenes (
+    scene_id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    created_date DATETIME,
+    last_modified DATETIME,
+    user_id INTEGER,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+-- Objects table to store kitchen items
+CREATE TABLE objects (
+    object_id INTEGER PRIMARY KEY,
+    scene_id INTEGER,
+    model_id INTEGER,
+    position_x REAL,
+    position_y REAL,
+    position_z REAL,
+    rotation_x REAL,
+    rotation_y REAL,
+    rotation_z REAL,
+    scale_x REAL,
+    scale_y REAL,
+    scale_z REAL,
+    FOREIGN KEY (scene_id) REFERENCES scenes(scene_id),
+    FOREIGN KEY (model_id) REFERENCES models(model_id)
+);
+                    </code></pre>
+                </div>
+
+                <h4>Skills Demonstrated:</h4>
+                <ul>
+                    <li>Database schema design and normalization</li>
+                    <li>SQL query development and optimization</li>
+                    <li>Data persistence and serialization</li>
+                    <li>Transaction management for data integrity</li>
+                </ul>
+
+                <div class="narrative">
+                    <a href="databases-narrative.html" class="btn">Read Full Narrative</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="professional" class="section">
+            <h2>Professional Self-Assessment</h2>
+            <p>Throughout my computer science program, I've developed a comprehensive set of technical and professional skills that prepare me for a career in software development.</p>
+            
+            <h3>Technical Growth</h3>
+            <p>My journey began with basic programming concepts and has evolved to include advanced topics like 3D graphics programming, algorithm optimization, and database design. The 3D Kitchen Scene project showcases this growth, demonstrating my ability to apply theoretical knowledge to practical problems.</p>
+            
+            <h3>Professional Skills</h3>
+            <p>Beyond technical abilities, I've developed essential workplace skills including effective communication, problem-solving strategies, and time management. These skills are evident in my project documentation, code organization, and ability to explain complex technical concepts clearly.</p>
+            
+            <h3>Future Growth</h3>
+            <p>As I continue my professional journey, I plan to deepen my knowledge in areas like real-time rendering, cloud-based data management, and mobile application development. I'm committed to ongoing learning and growth as a software professional.</p>
+            
+            <div class="narrative">
+                <a href="professional-assessment.html" class="btn">Read Full Assessment</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CS 499 ePortfolio. Created for Southern New Hampshire University.</p>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html> 
