@@ -5,17 +5,54 @@ This repository contains Sujina Chand's CS 499 Capstone ePortfolio, showcasing t
 
 ## Project Structure
 ```
-CS499-eportfolio/
-├── index.html              # Main ePortfolio page
-├── code-review.html        # Code review documentation
-├── css/
-│   └── styles.css         # Main stylesheet
-├── js/
-│   └── script.js          # JavaScript functionality
+Capstone/
+│
 ├── artifacts/
-│   ├── original/          # Original project files
-│   └── enhanced/          # Enhanced project files
-└── documentation/         # Project documentation
+│   ├── Software Design and Engineering/
+│   │   ├── original/
+│   │   │   └── SceneManager_original.cpp
+│   │   └── enhanced/
+│   │       ├── SceneNode.h
+│   │       ├── SceneManager_enhanced.cpp
+│   │       ├── ResourceManager.h
+│   │       └── DatabaseManager.h
+│   │
+│   ├── Algorithms and Data Structure/
+│   │   ├── original/
+│   │   │   ├── README.md
+│   │   │   ├── view.py
+│   │   │   ├── pathfinding.py
+│   │   │   ├── model.py
+│   │   │   ├── main_original.py
+│   │   │   ├── controller.py
+│   │   │   └── cache.py
+│   │   └── enhanced/
+│   │       ├── view_enhanced.py
+│   │       ├── model_enhanced.py
+│   │       ├── main_enhanced.py
+│   │       └── controller_enhanced.py
+│   │
+│   └── Databases/
+│       ├── original/
+│       │   ├── view.py
+│       │   ├── model.py
+│       │   ├── main.py
+│       │   └── controller.py
+│       └── enhanced/
+│           ├── test_security.py
+│           ├── test_migrations.py
+│           ├── test_database.py
+│           ├── model.py
+│           ├── migrations.py
+│           └── database_config.py
+│
+├── code-review.html
+├── index.html
+├── self-assessment.html
+├── narratives.html
+├── README.md
+├── styles.css
+└── documentation/
 ```
 
 ## Features
