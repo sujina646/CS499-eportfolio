@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detailed narratives of enhanced artifacts in the 3D Kitchen Scene project">
+    <meta name="keywords" content="3D graphics, OpenGL, software design, algorithms, databases, CS499, capstone">
+    <meta name="author" content="Sujina Chand">
+    <title>Artifact Narratives - CS 499 Capstone</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+</head>
+<body>
+    <header role="banner">
+        <nav role="navigation" aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="code-review.html">Code Review</a></li>
+                <li><a href="narratives.html" aria-current="page">Narratives</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main role="main">
+        <section id="narratives" class="section">
+            <h1>Artifact Enhancement Narratives</h1>
+            
+            <section id="software-design" class="narrative-section">
+                <h2>Software Design & Engineering</h2>
+                <div class="narrative-content">
+                    <h3>Enhancement Overview</h3>
+                    <p>Transformed the monolithic architecture into a component-based system, improving maintainability and extensibility.</p>
+                    
+                    <h3>Key Improvements</h3>
+                    <ul>
+                        <li>Implemented a scene graph for better object hierarchy management</li>
+                        <li>Created a resource management system for efficient asset loading</li>
+                        <li>Developed a component-based architecture for better code organization</li>
+                    </ul>
+
+                    <h3>Code Example</h3>
+                    <pre><code class="language-cpp">
+class SceneNode {
+    std::vector<SceneNode*> children;
+    Transform transform;
+    std::vector<Component*> components;
+public:
+    void addChild(SceneNode* child);
+    void update(float deltaTime);
+    void render();
+};
+                    </code></pre>
+
+                    <h3>Impact</h3>
+                    <p>These enhancements significantly improved code maintainability and made the system more extensible for future features.</p>
+                </div>
+            </section>
+
+            <section id="algorithms" class="narrative-section">
+                <h2>Algorithms & Data Structures</h2>
+                <div class="narrative-content">
+                    <h3>Enhancement Overview</h3>
+                    <p>Implemented advanced algorithms and data structures to optimize performance and resource management.</p>
+                    
+                    <h3>Key Improvements</h3>
+                    <ul>
+                        <li>Added spatial partitioning using Octree for efficient collision detection</li>
+                        <li>Implemented a resource caching system for better memory management</li>
+                        <li>Optimized scene traversal algorithms</li>
+                    </ul>
+
+                    <h3>Code Example</h3>
+                    <pre><code class="language-cpp">
+class Octree {
+    AABB bounds;
+    std::vector<Object*> objects;
+    Octree* children[8];
+public:
+    void insert(Object* obj);
+    std::vector<Object*> query(const AABB& region);
+};
+                    </code></pre>
+
+                    <h3>Impact</h3>
+                    <p>Performance improvements of up to 40% in complex scenes with many objects.</p>
+                </div>
+            </section>
+
+            <section id="databases" class="narrative-section">
+                <h2>Database Integration</h2>
+                <div class="narrative-content">
+                    <h3>Enhancement Overview</h3>
+                    <p>Added database functionality to enable scene persistence and user management.</p>
+                    
+                    <h3>Key Improvements</h3>
+                    <ul>
+                        <li>Implemented SQLite database integration</li>
+                        <li>Created a scene persistence system</li>
+                        <li>Added user management features</li>
+                    </ul>
+
+                    <h3>Code Example</h3>
+                    <pre><code class="language-cpp">
+class DatabaseManager {
+    sqlite3* db;
+public:
+    bool saveScene(const Scene& scene);
+    Scene loadScene(const std::string& sceneId);
+    bool authenticateUser(const std::string& username, const std::string& password);
+};
+                    </code></pre>
+
+                    <h3>Impact</h3>
+                    <p>Enabled scene persistence and user management, making the application more practical for real-world use.</p>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <p>&copy; 2024 Sujina Chand. All rights reserved.</p>
+        <p>CS 499 Capstone Project - Southern New Hampshire University</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
+</body>
+</html> 
