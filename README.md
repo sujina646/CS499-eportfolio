@@ -4,7 +4,7 @@
 This repository contains my CS 499 Capstone ePortfolio, showcasing the enhancement of the 3D Kitchen Scene project from CS 330. The ePortfolio demonstrates growth in computer science through three key areas: software design and engineering, algorithms and data structures, and databases.
 
 ## Project Structure
-
+``
 Capstone/
 │
 ├── artifacts/
@@ -54,6 +54,7 @@ Capstone/
 ├── README.md
 ├── styles.css
 └── documentation/
+``
 
 ## Pages
 
