@@ -1,41 +1,84 @@
-# CS499 ePortfolio - Sujina Chand
+# CS 499 Capstone ePortfolio
 
-This repository contains my CS499 Capstone ePortfolio showcasing my enhanced 3D Kitchen Scene project with improvements in software design, algorithms and data structures, and database integration.
+## Overview
+This repository contains Sujina Chand's CS 499 Capstone ePortfolio, showcasing the enhancement of the 3D Kitchen Scene project from CS 330. The ePortfolio demonstrates growth in computer science through three key areas: software design and engineering, algorithms and data structures, and databases.
 
-## Portfolio Website
-Visit my portfolio website: [https://sujina646.github.io/CS499-eportfolio/](https://sujina646.github.io/CS499-eportfolio/)
+## Project Structure
+```
+CS499-eportfolio/
+├── index.html              # Main ePortfolio page
+├── code-review.html        # Code review documentation
+├── css/
+│   └── styles.css         # Main stylesheet
+├── js/
+│   └── script.js          # JavaScript functionality
+├── artifacts/
+│   ├── original/          # Original project files
+│   └── enhanced/          # Enhanced project files
+└── documentation/         # Project documentation
+```
 
-## 3D Kitchen Scene Project Enhancements
+## Features
+- Professional self-assessment
+- Code review video and documentation
+- Enhanced artifacts with detailed narratives
+- Course outcomes demonstration
+- Responsive design for all devices
 
-### 1. Software Design & Engineering
-Enhanced the software architecture using:
-- Scene graph implementation for better object organization
-- Component-based system for flexible object management
-- Resource management system to optimize memory usage
+## Enhanced Artifacts
+1. **Software Design & Engineering**
+   - Component-based architecture
+   - Scene graph implementation
+   - Resource management system
 
-**Code:** [software-design/](/software-design/)
+2. **Algorithms & Data Structures**
+   - Spatial partitioning with Octree
+   - Resource caching system
+   - Optimized scene traversal
 
-### 2. Algorithms & Data Structures
-Improved performance through:
-- Tree data structure implementation
-- Spatial partitioning with Octree for efficient rendering
-- Resource caching system using hash maps
+3. **Database Integration**
+   - SQLite database integration
+   - Scene persistence system
+   - User management features
 
-**Code:** [algorithms/](/algorithms/)
+## Course Outcomes
+The ePortfolio demonstrates mastery of the following course outcomes:
+1. Building collaborative environments
+2. Professional communication
+3. Computing solutions
+4. Technical implementation
+5. Security mindset
 
-### 3. Databases
-Added persistence to the application with:
-- SQLite database integration
-- Normalized database schema design
-- Transaction management for data integrity
+## Technologies Used
+- HTML5
+- CSS3
+- JavaScript
+- OpenGL
+- C++
+- SQLite
 
-**Code:** [databases/](/databases/)
+## Getting Started
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/sujina646/CS499-eportfolio.git
+   ```
+2. Open `index.html` in your web browser to view the ePortfolio.
 
-## Documentation
-- [Professional Self-Assessment](professional-assessment.html)
-- [Software Design Narrative](software-narrative.html)
-- [Algorithms Narrative](algorithms-narrative.html)
-- [Databases Narrative](databases-narrative.html)
+## Live Demo
+Visit the live ePortfolio at: [https://sujina646.github.io/CS499-eportfolio/](https://sujina646.github.io/CS499-eportfolio/)
 
-## Contact
-Email: sujina.chand@snhu.edu
+## Author
+### Sujina Chand
+- **GitHub:** [sujina646](https://github.com/sujina646)
+- **Portfolio:** [CS499 ePortfolio](https://sujina646.github.io/CS499-eportfolio/)
+- **Education:** Bachelor of Science in Computer Science, Southern New Hampshire University
+- **Specialization:** 3D Graphics Programming and Software Development
+
+## License
+This project is created for educational purposes as part of the CS 499 Capstone at Southern New Hampshire University.
+
+## Acknowledgments
+- Southern New Hampshire University
+- CS 330: Computational Graphics and Visualization
+- CS 499: Computer Science Capstone
+
