@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Code Review for CS 499 Capstone - 3D Kitchen Scene Project">
+    <meta name="keywords" content="CS 499, Code Review, 3D Graphics, OpenGL, Computer Science, SNHU">
+    <meta name="author" content="Sujina Chand">
+    <title>Code Review - CS 499 Capstone</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header role="banner">
+        <div class="container">
+            <h1>Code Review</h1>
+            <p>Analysis of the 3D Kitchen Scene Project and Planned Enhancements</p>
+        </div>
+    </header>
+
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#professional-assessment">Professional Assessment</a></li>
+                <li><a href="index.html#artifacts">Enhanced Artifacts</a></li>
+                <li><a href="index.html#course-outcomes">Course Outcomes</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container" role="main">
+        <section id="overview" class="section" aria-labelledby="overview-heading">
+            <h2 id="overview-heading">Project Overview</h2>
+            <div class="content">
+                <p>The 3D Kitchen Scene project, originally developed in CS 330, serves as the foundation for my capstone enhancements. This code review provides a comprehensive analysis of the existing codebase and outlines planned improvements across three key areas: software design and engineering, algorithms and data structures, and databases.</p>
+            </div>
+        </section>
+
+        <section id="existing-functionality" class="section" aria-labelledby="existing-heading">
+            <h2 id="existing-heading">Existing Functionality</h2>
+            <div class="content">
+                <h3>Core Features</h3>
+                <ul>
+                    <li>3D scene rendering using OpenGL</li>
+                    <li>Basic object manipulation (translation, rotation, scaling)</li>
+                    <li>Simple lighting and material system</li>
+                    <li>Camera controls for scene navigation</li>
+                </ul>
+
+                <h3>Current Architecture</h3>
+                <p>The existing codebase follows a basic object-oriented structure with the following components:</p>
+                <ul>
+                    <li>Scene management system</li>
+                    <li>Object rendering pipeline</li>
+                    <li>Basic resource management</li>
+                    <li>Simple input handling</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="code-analysis" class="section" aria-labelledby="analysis-heading">
+            <h2 id="analysis-heading">Code Analysis</h2>
+            <div class="content">
+                <h3>Areas for Improvement</h3>
+                <div class="analysis-grid">
+                    <div class="analysis-card">
+                        <h4>Software Design</h4>
+                        <ul>
+                            <li>Limited use of design patterns</li>
+                            <li>Monolithic architecture</li>
+                            <li>Basic error handling</li>
+                            <li>Limited extensibility</li>
+                        </ul>
+                    </div>
+
+                    <div class="analysis-card">
+                        <h4>Algorithms & Data Structures</h4>
+                        <ul>
+                            <li>Linear object traversal</li>
+                            <li>Basic collision detection</li>
+                            <li>Inefficient resource loading</li>
+                            <li>Limited spatial organization</li>
+                        </ul>
+                    </div>
+
+                    <div class="analysis-card">
+                        <h4>Database Integration</h4>
+                        <ul>
+                            <li>No persistence system</li>
+                            <li>Limited state management</li>
+                            <li>No user data storage</li>
+                            <li>Missing data validation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="planned-enhancements" class="section" aria-labelledby="enhancements-heading">
+            <h2 id="enhancements-heading">Planned Enhancements</h2>
+            <div class="content">
+                <h3>Software Design & Engineering</h3>
+                <ul>
+                    <li>Implement component-based architecture</li>
+                    <li>Add scene graph for better object organization</li>
+                    <li>Implement resource management system</li>
+                    <li>Enhance error handling and logging</li>
+                </ul>
+
+                <h3>Algorithms & Data Structures</h3>
+                <ul>
+                    <li>Implement spatial partitioning with Octree</li>
+                    <li>Add resource caching system</li>
+                    <li>Optimize scene traversal</li>
+                    <li>Enhance collision detection</li>
+                </ul>
+
+                <h3>Database Integration</h3>
+                <ul>
+                    <li>Add SQLite database integration</li>
+                    <li>Implement scene persistence</li>
+                    <li>Add user management system</li>
+                    <li>Implement data validation</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="video" class="section" aria-labelledby="video-heading">
+            <h2 id="video-heading">Code Review Video</h2>
+            <div class="content">
+                <div class="video-container" role="region" aria-label="Code review video">
+                    <p>Video will be embedded here once created</p>
+                    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Code Review" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>GitHub: <a href="https://github.com/sujina646" target="_blank">sujina646</a></p>
+                    <p>Portfolio: <a href="https://sujina646.github.io/CS499-eportfolio/" target="_blank">CS499 ePortfolio</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://github.com/sujina646/CS499-eportfolio" target="_blank">GitHub Repository</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="narratives.html">Artifact Narratives</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2024 CS 499 ePortfolio. Created for Southern New Hampshire University.</p>
+        </div>
+    </footer>
+</body>
+</html> 
