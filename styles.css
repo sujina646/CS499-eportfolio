@@ -1,12 +1,14 @@
-/* Global Styles */
+/* Base styles */
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
     --accent-color: #e74c3c;
-    --light-color: #ecf0f1;
-    --dark-color: #34495e;
     --text-color: #333;
-    --code-bg: #f8f9fa;
+    --light-bg: #f8f9fa;
+    --dark-bg: #2c3e50;
+    --border-radius: 8px;
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
 }
 
 * {
@@ -19,43 +21,52 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--light-color);
+    background-color: var(--light-bg);
 }
 
 .container {
-    width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 1rem;
 }
 
-/* Header */
+/* Header styles */
 header {
-    background-color: var(--primary-color);
+    background-color: var(--dark-bg);
     color: white;
-    padding: 2rem 0;
+    padding: 3rem 0;
     text-align: center;
+    margin-bottom: 2rem;
 }
 
 header h1 {
     font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
 }
 
-/* Navigation */
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Navigation styles */
 nav {
-    background-color: var(--dark-color);
-    padding: 1rem 0;
+    background-color: white;
+    box-shadow: var(--box-shadow);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
+    margin-bottom: 2rem;
 }
 
 nav ul {
     display: flex;
     justify-content: center;
     list-style: none;
-    flex-wrap: wrap;
+    padding: 1rem 0;
 }
 
 nav ul li {
@@ -63,100 +74,135 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: var(--secondary-color);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
 }
 
 nav ul li a:hover {
-    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    color: white;
 }
 
-/* Sections */
+/* Section styles */
 .section {
-    padding: 3rem 0;
-    border-bottom: 1px solid #ddd;
-}
-
-.section:last-child {
-    border-bottom: none;
+    background-color: white;
+    margin: 2rem 0;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
 }
 
 .section h2 {
-    font-size: 2rem;
+    color: var(--secondary-color);
     margin-bottom: 1.5rem;
-    color: var(--primary-color);
-    position: relative;
     padding-bottom: 0.5rem;
-}
-
-.section h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50px;
-    height: 3px;
-    background-color: var(--secondary-color);
+    border-bottom: 2px solid var(--primary-color);
+    font-size: 2rem;
 }
 
 .section h3 {
-    font-size: 1.5rem;
+    color: var(--secondary-color);
     margin: 1.5rem 0 1rem;
-    color: var(--dark-color);
+    font-size: 1.5rem;
 }
 
 .section h4 {
-    font-size: 1.2rem;
+    color: var(--secondary-color);
     margin: 1.2rem 0 0.8rem;
-    color: var(--dark-color);
+    font-size: 1.2rem;
 }
 
-.section p {
-    margin-bottom: 1rem;
+/* Assessment content styles */
+.assessment-content {
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-.section ul {
-    margin-left: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.section ul li {
-    margin-bottom: 0.5rem;
-}
-
-/* About Section */
-.about-content {
-    display: flex;
-    flex-wrap: wrap;
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    margin: 2rem 0;
 }
 
-.about-text {
-    flex: 1;
-    min-width: 300px;
+.skill-card {
+    background-color: var(--light-bg);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
 }
 
-/* Code Review Section */
+/* Artifacts grid styles */
+.artifacts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.artifact-card {
+    background-color: var(--light-bg);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.artifact-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Outcomes grid styles */
+.outcomes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.outcome-card {
+    background-color: var(--light-bg);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.outcome-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Button styles */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Video container styles */
 .video-container {
     position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    padding-bottom: 56.25%;
     height: 0;
-    margin: 2rem 0;
-    background-color: #f1f1f1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-}
-
-.video-container p {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    overflow: hidden;
+    max-width: 100%;
+    background-color: #f0f0f0;
+    border-radius: var(--border-radius);
+    margin: 1.5rem 0;
 }
 
 .video-container iframe {
@@ -165,81 +211,98 @@ nav ul li a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 5px;
+    border: none;
 }
 
-/* Enhancement Sections */
-.enhancement {
-    background-color: white;
-    border-radius: 5px;
-    padding: 2rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2rem;
+/* List styles */
+ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
 }
 
-.code-sample {
-    margin: 1.5rem 0;
+li {
+    margin-bottom: 0.5rem;
 }
 
-.code-sample pre {
-    background-color: var(--code-bg);
-    padding: 1.5rem;
-    border-radius: 5px;
-    overflow-x: auto;
-    border: 1px solid #ddd;
-}
-
-.code-sample code {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.9rem;
-}
-
-/* Buttons */
-.btn {
-    display: inline-block;
-    background-color: var(--secondary-color);
-    color: white;
-    padding: 0.8rem 1.5rem;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: background-color 0.3s;
-    margin-top: 1rem;
-}
-
-.btn:hover {
-    background-color: #2980b9;
-}
-
-/* Footer */
+/* Footer styles */
 footer {
-    background-color: var(--primary-color);
+    background-color: var(--dark-bg);
     color: white;
-    text-align: center;
-    padding: 2rem 0;
+    padding: 3rem 0 2rem;
     margin-top: 3rem;
 }
 
-/* Responsive Design */
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.footer-section a {
+    color: white;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-section a:hover {
+    color: var(--primary-color);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Accessibility improvements */
+:focus {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+    nav {
+        display: none;
+    }
+
+    .section {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+
+    .btn {
+        display: none;
+    }
+}
+
+/* Responsive design */
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column;
         align-items: center;
     }
-    
+
     nav ul li {
         margin: 0.5rem 0;
     }
-    
-    .section h2 {
-        font-size: 1.8rem;
-    }
-    
-    .section h3 {
-        font-size: 1.3rem;
-    }
-    
-    .enhancement {
+
+    .section {
         padding: 1.5rem;
+    }
+
+    header {
+        padding: 2rem 0;
+    }
+
+    header h1 {
+        font-size: 2rem;
     }
 } 
