@@ -1,10 +1,10 @@
 # CS 499 Capstone ePortfolio
 
 ## Overview
-This repository contains Sujina Chand's CS 499 Capstone ePortfolio, showcasing the enhancement of the 3D Kitchen Scene project from CS 330. The ePortfolio demonstrates growth in computer science through three key areas: software design and engineering, algorithms and data structures, and databases.
+This repository contains my CS 499 Capstone ePortfolio, showcasing the enhancement of the 3D Kitchen Scene project from CS 330. The ePortfolio demonstrates growth in computer science through three key areas: software design and engineering, algorithms and data structures, and databases.
 
 ## Project Structure
-```
+
 Capstone/
 │
 ├── artifacts/
@@ -16,7 +16,6 @@ Capstone/
 │   │       ├── SceneManager_enhanced.cpp
 │   │       ├── ResourceManager.h
 │   │       └── DatabaseManager.h
-│   │
 │   ├── Algorithms and Data Structure/
 │   │   ├── original/
 │   │   │   ├── README.md
@@ -31,7 +30,6 @@ Capstone/
 │   │       ├── model_enhanced.py
 │   │       ├── main_enhanced.py
 │   │       └── controller_enhanced.py
-│   │
 │   └── Databases/
 │       ├── original/
 │       │   ├── view.py
@@ -50,10 +48,22 @@ Capstone/
 ├── index.html
 ├── self-assessment.html
 ├── narratives.html
+├── software-design.html
+├── algorithms.html
+├── databases.html
 ├── README.md
 ├── styles.css
 └── documentation/
-```
+
+## Pages
+
+- `index.html` - Home and overview
+- `software-design.html` - Software Design & Engineering artifacts
+- `algorithms.html` - Algorithms & Data Structures artifacts
+- `databases.html` - Database Integration artifacts
+- `narratives.html` - Artifact narratives and enhancement explanations
+- `code-review.html` - Code review video and analysis
+- `self-assessment.html` - Professional self-assessment
 
 ## Features
 - Professional self-assessment
@@ -118,4 +128,4 @@ This project is created for educational purposes as part of the CS 499 Capstone 
 - Southern New Hampshire University
 - CS 330: Computational Graphics and Visualization
 - CS 499: Computer Science Capstone
-
+- CS 360 Mobile Architect & Programming 
