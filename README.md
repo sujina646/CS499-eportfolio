@@ -129,3 +129,8 @@ This project is created for educational purposes as part of the CS 499 Capstone 
 - CS 330: Computational Graphics and Visualization
 - CS 499: Computer Science Capstone
 - CS 360 Mobile Architect & Programming 
+
+## Code Review Video
+
+The code review video for this ePortfolio is available on Google Drive:
+[View Code Review Video](https://drive.google.com/file/d/1mvuUs5HnPxyEvQjgAiCv00v06--dLJNa/view?usp=drive_link)
